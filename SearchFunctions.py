@@ -84,3 +84,13 @@ def Sig_2F(avg_2Fs, nSeg, rho):
     #bin_width = avg_2Fs[1] - avg_2Fs[0]
     pdf_value = ncx2.pdf(total_2Fs, 4*nSeg, rho)
     return pdf_value
+
+def h_plus(h_zero, iota, f_gw, t):
+    h_plus_iota_dep = ((1 + (np.cos(iota))**2)) / 2
+    oscillitory_comp = np.cos(2*np.pi*f_gw*t)
+    return h_zero * h_plus_iota_dep * oscillitory_comp
+
+def h_cross(h_zero, iota, f_gw, t):
+    h_cross_iota_dep = np.cos(iota)
+    oscillitory_comp = np.sin(2*np.pi*f_gw*t)
+    return h_zero * h_cross_iota_dep * oscillitory_comp
