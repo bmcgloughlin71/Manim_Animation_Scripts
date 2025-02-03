@@ -59,7 +59,7 @@ class RotatingEllipsoid(ThreeDScene):
         # Animate the rotation of the ellipsoid
         self.play(
             Rotate(ellipsoid, angle=total_rotation_angle * (2/3), axis=OUT, about_point=ORIGIN, run_time=20, rate_func=linear),
-            instantaneous_freq_tracker.animate.set_value(f_spin + f_dot * 20), run_time=20
+            instantaneous_freq_tracker.animate.set_value(f_spin + f_dot * 20), run_time=20, rate_func=linear
         )
 
         # Simultaneously move the camera
@@ -77,5 +77,5 @@ class RotatingEllipsoid(ThreeDScene):
         # Pause to show the final scene
         self.play(
             Rotate(ellipsoid, angle=total_rotation_angle * (5/30), axis=OUT, about_point=ORIGIN, run_time=5, rate_func=linear),
-            instantaneous_freq_tracker.animate.increment_value(f_dot * 5), run_time=5
+            instantaneous_freq_tracker.animate.increment_value(f_dot * 5), run_time=5, rate_func=linear
         )
